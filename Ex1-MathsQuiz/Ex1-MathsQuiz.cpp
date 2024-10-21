@@ -2,8 +2,8 @@
 using namespace std; // declares standard namespace
 
 int main (){
-    int displayMenu() { // initialises the displayMenu function
-                        // which contains the main manu text
+     int displayMenu();{ // initialises the displayMenu function
+                         // which contains the main manu text
          int menuOption = 0; // ensures the user's choice is reset on program start
          cout << "Maths Quiz" << "\n"
               << "----------" << "\n"
