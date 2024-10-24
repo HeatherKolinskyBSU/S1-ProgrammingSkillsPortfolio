@@ -3,10 +3,10 @@
 using namespace std;
 
 int main (){
-     programStart:
-     void displayMenu();{ // initialises the displayMenu function
-                          // which contains the main manu text and input
-         int menuOption = 0; // ensures the user's choice is reset on program start
+     programStart: 
+     int menuOption = 0; // ensures the user's choice is reset on program start
+                         // declared here so that menuOption remains a global variable
+     void displayMenu();{
          cout << "Maths Quiz" << "\n"
               << "----------" << "\n"
               << "[Easy]         - 1" << "\n"
@@ -17,6 +17,19 @@ int main (){
          // asks for user input and waits to receive one
     }
 
+    switch (menuOption) {
+        case 1: {
+          // PLACEHOLDER
+        }
+
+        case 2: {
+          // PLACEHOLDER
+        }
+
+        case 3: {
+          // PLACEHOLDER
+        }
+    }
 
     char runAgain;
     cout << endl
