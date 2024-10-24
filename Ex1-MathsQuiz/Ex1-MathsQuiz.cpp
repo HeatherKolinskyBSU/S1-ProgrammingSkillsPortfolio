@@ -9,9 +9,9 @@ int main (){
      void displayMenu();{
          cout << "Maths Quiz" << "\n"
               << "----------" << "\n"
-              << "[Easy]         - 1" << "\n"
-              << "[Intermediate] - 2" << "\n"
-              << "[Hard]         - 3" << "\n"
+              << "[Easy]     - 1" << "\n"
+              << "[Moderate] - 2" << "\n"
+              << "[Advanced] - 3" << "\n"
               << "Choose a difficulty level:" << endl;
          cin >> menuOption;
          // asks for user input and waits to receive one
@@ -19,15 +19,18 @@ int main (){
 
     switch (menuOption) {
         case 1: {
-          // PLACEHOLDER
+          srand(time(0)); // ensure a different random number generates each time this line is run
+          int randomInt = rand() % 10; // generate a random number anywhere between 0 and 10
         }
 
         case 2: {
-          // PLACEHOLDER
+          srand(time(0)); // ensure a different random number generates each time this line is run
+          int randomInt = rand() % 100; // generate a random number anywhere between 0 and 10
         }
 
         case 3: {
-          // PLACEHOLDER
+          srand(time(0)); // ensure a different random number generates each time this line is run
+          int randomInt = rand() % 10000; // generate a random number anywhere between 0 and 10
         }
     }
 
