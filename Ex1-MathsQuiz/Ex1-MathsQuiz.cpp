@@ -2,8 +2,8 @@
 #include <string>
 using namespace std;
 
-int main()
-{
+int main() {
+
 programStart:
      int menuOption = 0; // ensures the user's choice is reset on program start
                          // declared here so that menuOption remains a global variable
@@ -19,42 +19,88 @@ programStart:
           // asks for user input and waits to receive one
      }
 
-     switch (menuOption)
+     srand(time(0)); // generate the 'seed' for random number generation
+     int displayResults = 0; // resets the user's score each time the program is run
+     // declared here so that they remain global variables
+
+     void displayProblem();
      {
-     case 1:
-     {
-          srand(time(0));              // ensure a different random number generates each time this line is run
-          int randomInt = rand() % 10; // generate a random number anywhere between 0 and 10
+          int UserInput;          // lets the user input a guess to the program
+          int TotalQuestions = 0; // ensures program only prints required number of questions
+                                  // resets on program start
+
+          switch (menuOption)
+          {
+          case 1:
+          {
+               while (TotalQuestions != 10)
+               {
+                    int IsCorrect = 0; // stores how many guesses the user has used on a question
+
+                    int a = 1 + (rand() % 9);
+                    int b = 1 + (rand() % 9);
+                    // creates two random numbers
+
+                    cout << a << " + " << b << " = " << endl;
+                    cin >> UserInput;
+                    // waits for user input
+
+                    if (UserInput != a + b || UserInput != a - b) {
+                         IsCorrect = IsCorrect + 1;
+                         cout << "Oops! Try again" << endl;
+                         cin >> UserInput;
+                    }
+                    // if the user's input does NOT equal whatever the generated sum was
+                    // the question flags incorrect and gives them more chances
+
+                    if (IsCorrect == 0) {
+                         displayResults = displayResults + 10;
+                    }
+                    else; {
+                         displayResults = displayResults + 5;
+                    }
+                    // only succeeding a question first time yields 10 points
+
+                    TotalQuestions = TotalQuestions + 1;
+               }
+          }
+
+          case 2:
+          {
+               cout << "PLACEHOLDER" << endl;
+          }
+
+          case 3:
+          {
+               cout << "PLACEHOLDER" << endl;
+          }
+
+          }
      }
 
-     case 2:
+     void score();
      {
-          srand(time(0));               // ensure a different random number generates each time this line is run
-          int randomInt = rand() % 100; // generate a random number anywhere between 0 and 100
+          cout << "Congratulations! You got: " << displayResults << " points!" << endl;
      }
 
-     case 3:
+     void runAgain();
      {
-          srand(time(0));                 // ensure a different random number generates each time this line is run
-          int randomInt = rand() % 10000; // generate a random number anywhere between 0 and 1000
-     }
-     }
+          char runAgain;
+          cout << endl
+               << " Would you like to run another test? [Y/N]\n"
+               << "(Any input other than 'Y' or 'y' exits the program)" << endl;
+          cin >> runAgain;
+          // asks for user input then waits for response
 
-     char runAgain;
-     cout << endl
-          << " Would you like to run another test? [Y/N]\n"
-          << "(Any input other than 'Y' or 'y' exits the program)" << endl;
-     cin >> runAgain;
-     // asks for user input then waits for response
-
-     while (runAgain == 'Y' || runAgain == 'y')
-     {
+          while (runAgain == 'Y' || runAgain == 'y') {
           goto programStart;
           // goto sucks but the program is small enough for me to get away with it
+          }
+          
+          cout << "Exiting program..." << endl;
+          // while loop checks if the user wants to re-run the program
+          // if not, program ends
      }
-     cout << "Exiting program..." << endl;
-     // while loop checks if the user wants to re-run the program
-     // if not, program ends
 
      return 0;
 }
