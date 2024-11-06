@@ -41,12 +41,12 @@ programStart:
                     int b = 1 + (rand() % 9);
                     // creates two random numbers to use for random questions
 
-                    char decideOperation = 1 + (rand() % 2);
+                    char decideOperation = (rand() % 3);
                     // creates a 'coin-flip' to determine if the next question uses + or -
-                    if (decideOperation = 0) {
+                    if (decideOperation = 1) {
                          decideOperation = '+';
                     }
-                    else if (decideOperation = 1) {
+                    else if (decideOperation = 2) {
                          decideOperation = '-';
                     }
                     // assigns the output of the coinflip to a character (+/-)
@@ -55,7 +55,7 @@ programStart:
                     cin >> UserInput;
                     // waits for user input
 
-                    if (UserInput == a + b || UserInput == a - b) {
+                    if (UserInput == a << decideOperation << b) {
                          cout << "Correct!" << "\n"
                          << endl;
                          displayResults = displayResults + 10;
