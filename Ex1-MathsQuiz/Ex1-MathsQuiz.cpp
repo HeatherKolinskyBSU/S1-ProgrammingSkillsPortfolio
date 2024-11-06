@@ -41,33 +41,36 @@ programStart:
                     int b = 1 + (rand() % 9);
                     // creates two random numbers to use for random questions
 
-                    char decideOperation = (rand() % 3);
+                    string oerationSign;
+
+                    int decideOperation = rand() % 2;
                     // creates a 'coin-flip' to determine if the next question uses + or -
-                    if (decideOperation = 1) {
-                         decideOperation = '+';
+                    if (decideOperation == 0) {
+                          oerationSign = '+';
                     }
-                    else if (decideOperation = 2) {
-                         decideOperation = '-';
+                    else if (decideOperation == 1) {
+                         oerationSign = '-';
                     }
+
                     // assigns the output of the coinflip to a character (+/-)
 
-                    cout << a << " " << decideOperation << " " << b << " = " << endl;
+                    cout << a << " " << oerationSign << " " << b << " = " << endl;
                     cin >> UserInput;
                     // waits for user input
 
-                    if (UserInput == a << decideOperation << b) {
-                         cout << "Correct!" << "\n"
-                         << endl;
-                         displayResults = displayResults + 10;
-                         // only succeeding a question first time yields 10 points
-                    }
+                    // if (UserInput == a << oerationSign << b) {
+                    //      cout << "Correct!" << "\n"
+                    //      << endl;
+                    //      displayResults = displayResults + 10;
+                    //      // only succeeding a question first time yields 10 points
+                    // }
 
-                          else; {
-                               IsCorrect = IsCorrect + 1;
-                               cout << "Oops! Try again" << endl;
-                               cin >> UserInput;
-                               displayResults = displayResults + 5;
-                          }
+                    //       else; {
+                    //            IsCorrect = IsCorrect + 1;
+                    //            cout << "Oops! Try again" << endl;
+                    //            cin >> UserInput;
+                    //            displayResults = displayResults + 5;
+                    //       }
                           // if the user's input does NOT equal whatever the generated sum was
                           // the question flags incorrect and gives them another chance
 
