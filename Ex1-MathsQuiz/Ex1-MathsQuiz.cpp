@@ -2,13 +2,9 @@
 #include <string>
 using namespace std;
 
-int main() {
-
-programStart:
-     int menuOption = 0; // ensures the user's choice is reset on program start
-                         // declared here so that menuOption remains a global variable
-     void displayMenu();
+int displayMenu()
      {
+          int menuOption;
           cout << "  Maths Quiz" << "\n"
                << "--------------" << "\n"
                << "[Easy]     - 1" << "\n"
@@ -17,11 +13,21 @@ programStart:
                << "Choose a difficulty level:" << endl;
           cin >> menuOption;
           // asks for user input and waits to receive one
+          return menuOption;
      }
 
+int main() {
+
      srand(time(0)); // generate the 'seed' for random number generation
+     // declared here so that it remains main variables
+     bool nowExit = false;
+     do {
+     int menuOption = displayMenu(); // ensures the user's choice is reset on program start
+                         // declared here so that menuOption remains a global variable
+     
+
      int displayResults = 0; // resets the user's score each time the program is run
-     // both declared here so that they remain global variables
+     // declared here so that they remain global variables
 
      void displayProblem();
      {
@@ -180,7 +186,6 @@ programStart:
                << "Grade: " << resultsGrade << "\n"
      }
 
-     void runAgain();
      {
           char runAgain;
           cout << endl
@@ -190,7 +195,7 @@ programStart:
           // asks for user input then waits for response
 
           while (runAgain == 'Y' || runAgain == 'y') {
-          goto programStart;
+               nowExit = true;
           // uses goto the run the program again without exiting it entirely 
           // goto sucks but the program is small enough for me to probably get away with it
           }
@@ -199,6 +204,7 @@ programStart:
           // while loop checks if the user wants to re-run the program
           // if not, program ends
      }
+}while (!nowExit)
 
      return 0;
 }
