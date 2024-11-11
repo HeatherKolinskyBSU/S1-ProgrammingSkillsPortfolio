@@ -2,8 +2,10 @@
 #include <string>
 using namespace std;
 
-int displayMenu()
-     {
+int menuOption;
+int displayResults = 0; // ensures the user's score is 0 at program start
+
+int displayMenu() {
           int menuOption;
           cout << "  Maths Quiz" << "\n"
                << "--------------" << "\n"
@@ -12,28 +14,14 @@ int displayMenu()
                << "[Advanced] - 3" << "\n"
                << "Choose a difficulty level:" << endl;
           cin >> menuOption;
-          // asks for user input and waits to receive one
+
           return menuOption;
-     }
+          // takes menuOption so the program can use it's data elsewhere
+}
 
-int main() {
-
-     srand(time(0)); // generate the 'seed' for random number generation
-     // declared here so that it remains main variables
-     bool nowExit = false;
-     do {
-     int menuOption = displayMenu(); // ensures the user's choice is reset on program start
-                         // declared here so that menuOption remains a global variable
-     
-
-     int displayResults = 0; // resets the user's score each time the program is run
-     // declared here so that they remain global variables
-
-     void displayProblem();
-     {
-          int UserInput; // lets the user input a guess to the program
-          int TotalQuestions = 0; // ensures program only prints required number of questions
-                                  // resets on program start
+int displayProblem() {
+          int UserInput;
+          int TotalQuestions = 0;
 
           switch (menuOption)
           {
@@ -45,7 +33,6 @@ int main() {
 
                     int a = 1 + (rand() % 9);
                     int b = 1 + (rand() % 9);
-                    // creates two random numbers to use for random questions
 
                     string operationSign;
 
@@ -57,25 +44,30 @@ int main() {
                     else if (decideOperation == 1) {
                          operationSign = '-';
                     }
-                    // assigns the output of the coinflip to a character (+/-)
 
                     cout << a << " " << operationSign << " " << b << " = " << endl;
                     cin >> UserInput;
-                    // waits for user input
 
-                    if (UserInput == 'a << operationSign << b') {
+                    if (decideOperation == 0 && UserInput == a + b) {
                           cout << "Correct!" << "\n"
                           << endl;
                           displayResults = displayResults + 10;
                           // succeeding a question first time yields double points
+
+                    } else if (decideOperation == 1 && UserInput == a - b) {
+                         cout << "Correct!" << "\n"
+                          << endl;
+                          displayResults = displayResults + 10;
+                    // seperates + and - to check them seperately
+
                     } else {
-                                IsCorrect = IsCorrect + 1;
-                                cout << "Oops! Try again" << endl;
-                                cin >> UserInput;
-                                displayResults = displayResults + 5;
-                         }
-                         // if the user's input does NOT equal whatever the generated sum was,
-                         // the question flags incorrect and gives them another chance
+                         IsCorrect = IsCorrect + 1;
+                         cout << "Oops! Try again" << endl;
+                         cin >> UserInput;
+                         displayResults = displayResults + 5;
+                    }
+                    // if the user's input does NOT equal whatever the generated sum was,
+                    // the question flags incorrect and gives them another chance
 
                     TotalQuestions = TotalQuestions + 1;
                }
@@ -85,11 +77,10 @@ int main() {
           {
                while (TotalQuestions != 10)
                {
-                    int IsCorrect = 0; // stores how many guesses the user has used on a question
+                    int IsCorrect = 0;
 
                     int a = 1 + (rand() % 99);
                     int b = 1 + (rand() % 99);
-                    // creates two random numbers to use for random questions
 
                     string operationSign;
 
@@ -105,7 +96,29 @@ int main() {
 
                     cout << a << " " << operationSign << " " << b << " = " << endl;
                     cin >> UserInput;
-                    // waits for user input
+
+                    if (decideOperation == 0 && UserInput == a + b) {
+                          cout << "Correct!" << "\n"
+                          << endl;
+                          displayResults = displayResults + 10;
+                          // succeeding a question first time yields double points
+
+                    } else if (decideOperation == 1 && UserInput == a - b) {
+                         cout << "Correct!" << "\n"
+                          << endl;
+                          displayResults = displayResults + 10;
+                    // seperates + and - to check them seperately
+
+                    } else {
+                         IsCorrect = IsCorrect + 1;
+                         cout << "Oops! Try again" << endl;
+                         cin >> UserInput;
+                         displayResults = displayResults + 5;
+                    }
+                         // if the user's input does NOT equal whatever the generated sum was,
+                         // the question flags incorrect and gives them another chance
+
+                    TotalQuestions = TotalQuestions + 1;
                }
           }
 
@@ -113,11 +126,10 @@ int main() {
           {
                while (TotalQuestions != 10)
                {
-                    int IsCorrect = 0; // stores how many guesses the user has used on a question
+                    int IsCorrect = 0;
 
                     int a = 1 + (rand() % 9999);
                     int b = 1 + (rand() % 9999);
-                    // creates two random numbers to use for random questions
 
                     string operationSign;
 
@@ -133,78 +145,99 @@ int main() {
 
                     cout << a << " " << operationSign << " " << b << " = " << endl;
                     cin >> UserInput;
-                    // waits for user input
+
+                    if (decideOperation == 0 && UserInput == a + b) {
+                          cout << "Correct!" << "\n"
+                          << endl;
+                          displayResults = displayResults + 10;
+                          // succeeding a question first time yields double points
+
+                    } else if (decideOperation == 1 && UserInput == a - b) {
+                         cout << "Correct!" << "\n"
+                          << endl;
+                          displayResults = displayResults + 10;
+                    // seperates + and - to check them seperately
+
+                    } else {
+                         IsCorrect = IsCorrect + 1;
+                         cout << "Oops! Try again" << endl;
+                         cin >> UserInput;
+                         displayResults = displayResults + 5;
+                    }
+                         // if the user's input does NOT equal whatever the generated sum was,
+                         // the question flags incorrect and gives them another chance
+
+                    TotalQuestions = TotalQuestions + 1;
                }
+          }
 
           }
-     }
-     }
 
-     void score();
+          return displayResults;
+}
+
+void score()
      {
           string resultsGrade;
 
-          switch (resultsGrade){
-               case (displayResults >89){
-                    resultsGrade = "A+";
-                    break();
-               }
+          if (displayResults > 89) {
+               resultsGrade = "A+";
 
-               case (displayResults >79){
-                    resultsGrade = "A";
-                    break();
-               }
+          } else if (displayResults > 79) {
+               resultsGrade = "A";
 
-               case (displayResults >69){
-                    resultsGrade = "B";
-                    break();
-               }
+          } else if (displayResults > 69) {
+               resultsGrade = "B";
+               
+          } else if (displayResults > 59) {
+               resultsGrade = "C";
+               
+          } else if (displayResults > 49) {
+               resultsGrade = "D";
 
-               case (displayResults >59){
-                    resultsGrade = "C";
-                    break();
-               }
+          } else if (displayResults > 39) {
+               resultsGrade = "E";
 
-               case (displayResults >49){
-                    resultsGrade = "D";
-                    break();
-               }
-
-               case (displayResults >39){
-                    resultsGrade = "E";
-                    break();
-               }
-
-               case (displayResults <40){
-                    resultsGrade = "F";
-                    break();
-               }
-               // switch statement to determine the user's 'grade' depending on how many points they scored
-               // base pass mark is 40%
+          } else if (displayResults < 40) {
+               resultsGrade = "F";
           }
+          // if-else statement to determine the user's 'grade' depending on how many points they scored
+
           cout << "Congratulations! You got: " << displayResults << " points!" << "\n"
-               << "Grade: " << resultsGrade << "\n"
+               << "Grade: " << resultsGrade << "\n";
      }
 
-     {
+int main() {
+
+     srand(time(0)); // generate the 'seed' for random number generation
+
+     bool nowExit;
+     do { // start of the Do While which repeats the program based on user input
+          nowExit = false; // (re)sets nowExit to False on program (re)start
+
+          displayResults = 0; // resets the user's score each time the program is run
+
+          menuOption = displayMenu(); // ensures the user's choice is reset on program restart
+
+          displayResults = displayProblem();
+
+          score();
+
           char runAgain;
           cout << endl
                << " Would you like to run another test? [Y/N]" << "\n"
                << "(Any input other than 'Y' or 'y' exits the program)" << endl;
           cin >> runAgain;
-          // asks for user input then waits for response
 
-          while (runAgain == 'Y' || runAgain == 'y') {
+          if (runAgain == 'Y' || runAgain == 'y') {
                nowExit = true;
-          // uses goto the run the program again without exiting it entirely 
-          // goto sucks but the program is small enough for me to probably get away with it
+          // checks user input to determine whether or not to exit the 'Do While' loop
+          } else {
+               cout << "Exiting program..." << endl;
           }
-          
-          cout << "Exiting program..." << endl;
-          // while loop checks if the user wants to re-run the program
-          // if not, program ends
-     }
-}while (!nowExit)
+
+}while (nowExit);
+// the other end of Do While
 
      return 0;
 }
