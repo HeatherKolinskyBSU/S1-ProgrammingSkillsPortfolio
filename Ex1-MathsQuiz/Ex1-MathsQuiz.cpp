@@ -62,7 +62,7 @@ programStart:
                           << endl;
                           displayResults = displayResults + 10;
                           // succeeding a question first time yields double points
-                    } else; {
+                    } else {
                                 IsCorrect = IsCorrect + 1;
                                 cout << "Oops! Try again" << endl;
                                 cin >> UserInput;
@@ -73,7 +73,6 @@ programStart:
 
                     TotalQuestions = TotalQuestions + 1;
                }
-          }
           }
 
           case 2:
@@ -101,6 +100,7 @@ programStart:
                     cout << a << " " << operationSign << " " << b << " = " << endl;
                     cin >> UserInput;
                     // waits for user input
+               }
           }
 
           case 3:
@@ -128,9 +128,10 @@ programStart:
                     cout << a << " " << operationSign << " " << b << " = " << endl;
                     cin >> UserInput;
                     // waits for user input
-          }
+               }
 
           }
+     }
      }
 
      void score();
