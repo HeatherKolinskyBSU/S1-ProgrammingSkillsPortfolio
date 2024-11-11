@@ -9,8 +9,8 @@ programStart:
                          // declared here so that menuOption remains a global variable
      void displayMenu();
      {
-          cout << "Maths Quiz" << "\n"
-               << "----------" << "\n"
+          cout << "  Maths Quiz" << "\n"
+               << "--------------" << "\n"
                << "[Easy]     - 1" << "\n"
                << "[Moderate] - 2" << "\n"
                << "[Advanced] - 3" << "\n"
@@ -57,20 +57,18 @@ programStart:
                     cin >> UserInput;
                     // waits for user input
 
-                    if (UserInput == a << operationSign << b) {
+                    if (UserInput == 'a << operationSign << b') {
                           cout << "Correct!" << "\n"
                           << endl;
                           displayResults = displayResults + 10;
-                          // only succeeding a question first time yields 10 points
-                    }
-
-                           else; {
+                          // succeeding a question first time yields double points
+                    } else; {
                                 IsCorrect = IsCorrect + 1;
                                 cout << "Oops! Try again" << endl;
                                 cin >> UserInput;
                                 displayResults = displayResults + 5;
                          }
-                          // if the user's input does NOT equal whatever the generated sum was
+                          // if the user's input does NOT equal whatever the generated sum was,
                           // the question flags incorrect and gives them another chance
 
                     TotalQuestions = TotalQuestions + 1;
@@ -79,12 +77,56 @@ programStart:
 
           case 2:
           {
-               cout << "PLACEHOLDER" << endl;
+               while (TotalQuestions != 10)
+               {
+                    int IsCorrect = 0; // stores how many guesses the user has used on a question
+
+                    int a = 1 + (rand() % 99);
+                    int b = 1 + (rand() % 99);
+                    // creates two random numbers to use for random questions
+
+                    string operationSign;
+
+                    int decideOperation = rand() % 2;
+                    // creates a 'coin-flip' to determine if the next question uses '+' or '-'
+                    if (decideOperation == 0) {
+                          operationSign = '+';
+                    }
+                    else if (decideOperation == 1) {
+                         operationSign = '-';
+                    }
+                    // assigns the output of the coinflip to a character (+/-)
+
+                    cout << a << " " << operationSign << " " << b << " = " << endl;
+                    cin >> UserInput;
+                    // waits for user input
           }
 
           case 3:
           {
-               cout << "PLACEHOLDER" << endl;
+               while (TotalQuestions != 10)
+               {
+                    int IsCorrect = 0; // stores how many guesses the user has used on a question
+
+                    int a = 1 + (rand() % 9999);
+                    int b = 1 + (rand() % 9999);
+                    // creates two random numbers to use for random questions
+
+                    string operationSign;
+
+                    int decideOperation = rand() % 2;
+                    // creates a 'coin-flip' to determine if the next question uses '+' or '-'
+                    if (decideOperation == 0) {
+                          operationSign = '+';
+                    }
+                    else if (decideOperation == 1) {
+                         operationSign = '-';
+                    }
+                    // assigns the output of the coinflip to a character (+/-)
+
+                    cout << a << " " << operationSign << " " << b << " = " << endl;
+                    cin >> UserInput;
+                    // waits for user input
           }
 
           }
@@ -92,14 +134,49 @@ programStart:
 
      void score();
      {
-          cout << "Congratulations! You got: " << displayResults << " points!" << endl;
+          string resultsGrade;
+
+          switch (resultsGrade){
+               case (displayResults >89){
+                    resultsGrade = "A+";
+                    break();
+               }
+               case (displayResults >79){
+                    resultsGrade = "A";
+                    break();
+               }
+               case (displayResults >69){
+                    resultsGrade = "B";
+                    break();
+               }
+               case (displayResults >59){
+                    resultsGrade = "C";
+                    break();
+               }
+               case (displayResults >49){
+                    resultsGrade = "D";
+                    break();
+               }
+               case (displayResults >39){
+                    resultsGrade = "E";
+                    break();
+               }
+               case (displayResults <40){
+                    resultsGrade = "F";
+                    break();
+               }
+               // switch statement to determine the user's 'grade' depending on how many points they scored
+               // base pass mark is 40%
+          }
+          cout << "Congratulations! You got: " << displayResults << " points!" << "\n"
+               << "Grade: " << resultsGrade << "\n"
      }
 
      void runAgain();
      {
           char runAgain;
           cout << endl
-               << " Would you like to run another test? [Y/N]\n"
+               << " Would you like to run another test? [Y/N]" << "\n"
                << "(Any input other than 'Y' or 'y' exits the program)" << endl;
           cin >> runAgain;
           // asks for user input then waits for response
