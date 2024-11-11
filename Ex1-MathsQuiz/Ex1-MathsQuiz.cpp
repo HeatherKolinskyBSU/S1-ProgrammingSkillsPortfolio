@@ -25,7 +25,7 @@ programStart:
 
      void displayProblem();
      {
-          int UserInput;          // lets the user input a guess to the program
+          int UserInput; // lets the user input a guess to the program
           int TotalQuestions = 0; // ensures program only prints required number of questions
                                   // resets on program start
 
@@ -41,24 +41,23 @@ programStart:
                     int b = 1 + (rand() % 9);
                     // creates two random numbers to use for random questions
 
-                    string oerationSign;
+                    string operationSign;
 
                     int decideOperation = rand() % 2;
-                    // creates a 'coin-flip' to determine if the next question uses + or -
+                    // creates a 'coin-flip' to determine if the next question uses '+' or '-'
                     if (decideOperation == 0) {
-                          oerationSign = '+';
+                          operationSign = '+';
                     }
                     else if (decideOperation == 1) {
-                         oerationSign = '-';
+                         operationSign = '-';
                     }
-
                     // assigns the output of the coinflip to a character (+/-)
 
-                    cout << a << " " << oerationSign << " " << b << " = " << endl;
+                    cout << a << " " << operationSign << " " << b << " = " << endl;
                     cin >> UserInput;
                     // waits for user input
 
-                    // if (UserInput == a << oerationSign << b) {
+                    // if (UserInput == a << operationSign << b) {
                     //      cout << "Correct!" << "\n"
                     //      << endl;
                     //      displayResults = displayResults + 10;
