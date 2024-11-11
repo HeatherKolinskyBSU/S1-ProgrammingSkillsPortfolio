@@ -21,7 +21,7 @@ programStart:
 
      srand(time(0)); // generate the 'seed' for random number generation
      int displayResults = 0; // resets the user's score each time the program is run
-     // declared here so that they remain global variables
+     // both declared here so that they remain global variables
 
      void displayProblem();
      {
@@ -57,19 +57,19 @@ programStart:
                     cin >> UserInput;
                     // waits for user input
 
-                    // if (UserInput == a << operationSign << b) {
-                    //      cout << "Correct!" << "\n"
-                    //      << endl;
-                    //      displayResults = displayResults + 10;
-                    //      // only succeeding a question first time yields 10 points
-                    // }
+                    if (UserInput == a << operationSign << b) {
+                          cout << "Correct!" << "\n"
+                          << endl;
+                          displayResults = displayResults + 10;
+                          // only succeeding a question first time yields 10 points
+                    }
 
-                    //       else; {
-                    //            IsCorrect = IsCorrect + 1;
-                    //            cout << "Oops! Try again" << endl;
-                    //            cin >> UserInput;
-                    //            displayResults = displayResults + 5;
-                    //       }
+                           else; {
+                                IsCorrect = IsCorrect + 1;
+                                cout << "Oops! Try again" << endl;
+                                cin >> UserInput;
+                                displayResults = displayResults + 5;
+                         }
                           // if the user's input does NOT equal whatever the generated sum was
                           // the question flags incorrect and gives them another chance
 
@@ -106,7 +106,8 @@ programStart:
 
           while (runAgain == 'Y' || runAgain == 'y') {
           goto programStart;
-          // goto sucks but the program is small enough for me to get away with it
+          // uses goto the run the program again without exiting it entirely 
+          // goto sucks but the program is small enough for me to probably get away with it
           }
           
           cout << "Exiting program..." << endl;
