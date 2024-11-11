@@ -68,11 +68,12 @@ programStart:
                                 cin >> UserInput;
                                 displayResults = displayResults + 5;
                          }
-                          // if the user's input does NOT equal whatever the generated sum was,
-                          // the question flags incorrect and gives them another chance
+                         // if the user's input does NOT equal whatever the generated sum was,
+                         // the question flags incorrect and gives them another chance
 
                     TotalQuestions = TotalQuestions + 1;
                }
+          }
           }
 
           case 2:
@@ -141,26 +142,32 @@ programStart:
                     resultsGrade = "A+";
                     break();
                }
+
                case (displayResults >79){
                     resultsGrade = "A";
                     break();
                }
+
                case (displayResults >69){
                     resultsGrade = "B";
                     break();
                }
+
                case (displayResults >59){
                     resultsGrade = "C";
                     break();
                }
+
                case (displayResults >49){
                     resultsGrade = "D";
                     break();
                }
+
                case (displayResults >39){
                     resultsGrade = "E";
                     break();
                }
+
                case (displayResults <40){
                     resultsGrade = "F";
                     break();
