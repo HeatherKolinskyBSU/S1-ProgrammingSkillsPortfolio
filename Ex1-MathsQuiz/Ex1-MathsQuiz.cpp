@@ -206,6 +206,7 @@ void score()
           cout << "Congratulations! You got: " << displayResults << " points!" << "\n"
                << "Grade: " << resultsGrade << "\n";
      }
+     // Chose to keep score as a void as we don't actually need to pass any information out of it
 
 int main() {
 
