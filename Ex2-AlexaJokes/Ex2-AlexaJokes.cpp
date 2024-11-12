@@ -5,8 +5,10 @@ using namespace std;
 
 int main() {
 
-programStart:
-    // PLACEHOLDER
+    bool nowExit;
+     do { // start of the Do While which repeats the program based on user input
+          nowExit = false; // (re)sets nowExit to False on program (re)start
+
     string jokeStart; // creates a variable that the user can input into
     cin >> jokeStart; // immediately pause the program for user input
 
@@ -14,24 +16,21 @@ programStart:
         std::ifstream myfile ("randomJokes.txt");
     }
 
-    void runAgain();
-     {
           char runAgain;
           cout << endl
-               << " Would you like to get another joke? [Y/N]\n"
+               << " Would you like to run another test? [Y/N]" << "\n"
                << "(Any input other than 'Y' or 'y' exits the program)" << endl;
           cin >> runAgain;
-          // asks for user input then waits for response
 
-          while (runAgain == 'Y' || runAgain == 'y') {
-          goto programStart;
-          // goto sucks but the program is small enough for me to get away with it
+          if (runAgain == 'Y' || runAgain == 'y') {
+               nowExit = true;
+          // checks user input to determine whether or not to exit the 'Do While' loop
+          } else {
+               cout << "Exiting program..." << endl;
           }
-          
-          cout << "Exiting program..." << endl;
-          // while loop checks if the user wants to re-run the program
-          // if not, program ends
-     }
+
+}while (nowExit);
+// the other end of Do While
 
      return 0;
 }
