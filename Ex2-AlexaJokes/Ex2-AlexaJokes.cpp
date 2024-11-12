@@ -4,8 +4,9 @@
 using namespace std;
 
 int jokes() {
-     string jokeStart; // creates a variable that the user can input into
-    cin >> jokeStart; // immediately pause the program for user input
+     string jokeStart; // the main variable that the user will input data into
+     cin >> jokeStart; 
+     // immediately pause the program for user input
 
      while (jokeStart == "alexa, tell me a joke") {
           //
