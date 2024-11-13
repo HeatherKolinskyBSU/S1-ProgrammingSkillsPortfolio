@@ -1,25 +1,39 @@
 #include <iostream>
 #include <string>
-#include <fstream> // allows for file handling stuff
+#include <fstream>
 using namespace std;
 
-int jokes() {
-     string jokeStart; // the main variable that the user will input data into
-     cin >> jokeStart; 
-     // immediately pause the program for user input
+int getJoke() {
+     ifstream inputFile("randomJokes.txt"); // opens the randomJokes text file
+     if (inputFile.is_open()) { // check if the file actually opened
+          string line;
+          int random = 0;
+          int numOfLines = 0;
 
-     while (jokeStart == "alexa, tell me a joke") {
-          //
+          random = 1 + (rand() % 38);
+
+          while(getline(inputFile, line)) {
+               ++numOfLines;
+
+               if(numOfLines == random) {
+                    cout << line;
+               }
+          }
+          inputFile.close(); // closes randomJokes.txt after use
+     } else {
+          cout << "Unable to open requested file" << endl;
      }
 }
 
 int main() {
 
+    srand(time(0)); // generate the 'seed' for random number generation
+
     bool nowExit;
      do { // start of the Do While which repeats the program based on user input
           nowExit = false; // (re)sets nowExit to False on program (re)start
 
-          jokes();
+          getJoke(); // calls 'getJoke' function to run here
 
           char runAgain;
           cout << endl
@@ -34,8 +48,7 @@ int main() {
                cout << "Exiting program..." << endl;
           }
 
-}while (nowExit);
-// the other end of Do While
+} while (nowExit);
 
      return 0;
 }

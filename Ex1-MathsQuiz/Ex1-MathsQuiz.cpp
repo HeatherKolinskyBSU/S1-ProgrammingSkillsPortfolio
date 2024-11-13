@@ -218,11 +218,11 @@ int main() {
 
           displayResults = 0; // resets the user's score each time the program is run
 
-          menuOption = displayMenu(); // ensures the user's choice is reset on program restart
+          menuOption = displayMenu();
 
           displayResults = displayProblem();
 
-          score();
+          score(); // calls 'score' to be run here
 
           char runAgain;
           cout << endl
