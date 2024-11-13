@@ -3,15 +3,15 @@
 #include <fstream>
 using namespace std;
 
-int getJoke() {
+void getJoke() {
 
      string joke;
      int randomJoke = 0;
      int lineNum = 0;
-     
-     ifstream inputFile("randomJokes.txt"); // opens the randomJokes text file
-     if (inputFile.is_open()) { // check if the file actually opened
 
+     ifstream inputFile("randomJokes.txt"); // opens the randomJokes text file
+
+     if (inputFile.is_open()) { // check if the file actually opened
           randomJoke = 1 + (rand() % 38);
 
           while(getline(inputFile, joke)) {
@@ -22,6 +22,7 @@ int getJoke() {
                }
           }
           inputFile.close(); // closes randomJokes.txt after use
+
      } else {
           cout << "Unable to open requested file" << endl;
      }
