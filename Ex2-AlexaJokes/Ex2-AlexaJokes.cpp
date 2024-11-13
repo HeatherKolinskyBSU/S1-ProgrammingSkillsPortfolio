@@ -4,19 +4,21 @@
 using namespace std;
 
 int getJoke() {
+
+     string joke;
+     int randomJoke = 0;
+     int lineNum = 0;
+     
      ifstream inputFile("randomJokes.txt"); // opens the randomJokes text file
      if (inputFile.is_open()) { // check if the file actually opened
-          string line;
-          int random = 0;
-          int numOfLines = 0;
 
-          random = 1 + (rand() % 38);
+          randomJoke = 1 + (rand() % 38);
 
-          while(getline(inputFile, line)) {
-               ++numOfLines;
+          while(getline(inputFile, joke)) {
+               ++lineNum;
 
-               if(numOfLines == random) {
-                    cout << line;
+               if(lineNum == randomJoke) {
+                    cout << joke;
                }
           }
           inputFile.close(); // closes randomJokes.txt after use
