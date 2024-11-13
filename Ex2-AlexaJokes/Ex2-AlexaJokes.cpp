@@ -12,13 +12,16 @@ void getJoke() {
      ifstream inputFile("randomJokes.txt"); // opens the randomJokes text file
 
      if (inputFile.is_open()) { // check if the file actually opened
-          randomJoke = 1 + (rand() % 38);
+          randomJoke = 1 + (rand() % 37);
 
           while(getline(inputFile, joke)) {
                ++lineNum;
+          // reads a line from the file and stores it for later use
 
                if(lineNum == randomJoke) {
+                    cout << endl;
                     cout << joke;
+               // if the randomly generated number has a corresponding line in the file, print
                }
           }
           inputFile.close(); // closes randomJokes.txt after use
