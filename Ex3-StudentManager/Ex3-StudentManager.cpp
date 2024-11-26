@@ -21,6 +21,8 @@ int menuOptions() {
         lowestStudent = 4
     };
     cin >> path;
+    // uses enum to label cases in the later switch statement
+    // makes program more understandable than just using case 1, case 2, etc...
 
     switch (path) {
         case allStudents:
@@ -30,12 +32,14 @@ int menuOptions() {
                 {
                     cout << line << '\n';
                 }
+
                 myfile.close();
+
             } else {
                 cout << "Unable to open file";
             }
-            
             break;
+            // Reads file and prints every present line in said file
 
         case oneStudent:
             ofstream myfile("studentMarks.txt");
@@ -74,6 +78,7 @@ int menuOptions() {
             cout << "\n"
                  << "Unable to open file. Exiting program." << endl;
             exit()
+        // immediately kills the program if the file cannot open
     }
 }
 
