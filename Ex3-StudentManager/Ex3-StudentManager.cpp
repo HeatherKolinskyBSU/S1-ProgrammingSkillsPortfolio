@@ -74,8 +74,12 @@ int menuOptions() {
         case highestStudent:
             ofstream myfile("studentMarks.txt");
             if (myfile.is_open()) {
-                // PLACEHOLDER
+
+                // This case would have a system to check each line of code in the text file.
+                // Comparing the overall mark(s0 and printing the line with the highest one.
+
                 myfile.close();
+
             } else {
                 cout << "Unable to open file";
             }
@@ -85,9 +89,14 @@ int menuOptions() {
         case lowestStudent:
             ofstream myfile("studentMarks.txt");
             if (myfile.is_open()) {
-                // PLACEHOLDER
+
+                // This case would have a system to check each line of code in the text file.
+                // Comparing the overall mark(s0 and printing the line with the lowest one.
+
                 myfile.close();
+
             } else {
+
                 cout << "Unable to open file";
             }
 
