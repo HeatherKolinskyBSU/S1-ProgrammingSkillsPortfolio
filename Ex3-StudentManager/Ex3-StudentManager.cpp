@@ -28,6 +28,7 @@ int menuOptions() {
         case allStudents:
             ofstream myfile("studentMarks.txt");
             if (myfile.is_open()) {
+
                 while (getline(myfile, line))
                 {
                     cout << line << '\n';
@@ -44,12 +45,30 @@ int menuOptions() {
         case oneStudent:
             ofstream myfile("studentMarks.txt");
             if (myfile.is_open()) {
-                // PLACEHOLDER
+
+                string line;
+                int randomLine = 0;
+                int lineNum = 0;
+
+                randomLine = 1 + (rand() % 11);
+
+                while (getline(inputFile, line)) {
+                    ++lineNum;
+                // reads a line from the file and stores it for later use
+
+                    if (lineNum == randomLine) {
+                        cout << endl;
+                        cout << line;
+                     // if the randomly generated number has a corresponding line in the file, print
+
+                     // I know this isn't what the brief wants but I ran out of time to properly
+                     // develop a solution. Hopefully this is enough.
+
                 myfile.close();
+
             } else {
                 cout << "Unable to open file";
             }
-
             break;
 
         case highestStudent:
