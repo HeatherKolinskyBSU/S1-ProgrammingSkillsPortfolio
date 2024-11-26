@@ -24,19 +24,50 @@ int menuOptions() {
 
     switch (path) {
         case allStudents:
-            // code block
+            ofstream myfile("studentMarks.txt");
+            if (myfile.is_open()) {
+                while (getline(myfile, line))
+                {
+                    cout << line << '\n';
+                }
+                myfile.close();
+            } else {
+                cout << "Unable to open file";
+            }
+            
             break;
 
         case oneStudent:
-            // code block
+            ofstream myfile("studentMarks.txt");
+            if (myfile.is_open()) {
+                // PLACEHOLDER
+                myfile.close();
+            } else {
+                cout << "Unable to open file";
+            }
+
             break;
 
         case highestStudent:
-            // code block
+            ofstream myfile("studentMarks.txt");
+            if (myfile.is_open()) {
+                // PLACEHOLDER
+                myfile.close();
+            } else {
+                cout << "Unable to open file";
+            }
+
             break;
 
         case lowestStudent:
-            // code block
+            ofstream myfile("studentMarks.txt");
+            if (myfile.is_open()) {
+                // PLACEHOLDER
+                myfile.close();
+            } else {
+                cout << "Unable to open file";
+            }
+
             break;
 
         default:
